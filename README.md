@@ -23,7 +23,7 @@ These instructions will help you set up the project on your local machine for de
 
 1. Clone the repository:
 
-        git clone https://github.com/your-username/your-project.git
+        git clone https://github.com/DariuszSikorra/rockstar-dariusz-sikorra.git
 
 2. Install packages in your root folder
 
