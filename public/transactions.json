@@ -1,0 +1,19 @@
+[
+  { "amount": 120, "date": "2023-01-15", "customerId": 1 },
+  { "amount": 80, "date": "2023-01-20", "customerId": 1 },
+  { "amount": 60, "date": "2023-02-10", "customerId": 1 },
+  { "amount": 150, "date": "2023-02-15", "customerId": 1 },
+  { "amount": 90, "date": "2023-03-05", "customerId": 1 },
+
+  { "amount": 90, "date": "2023-01-15", "customerId": 2 },
+  { "amount": 120, "date": "2023-01-20", "customerId": 2 },
+  { "amount": 50, "date": "2023-02-10", "customerId": 2 },
+  { "amount": 80, "date": "2023-02-15", "customerId": 2 },
+  { "amount": 110, "date": "2023-03-05", "customerId": 2 },
+
+  { "amount": 150, "date": "2023-01-15", "customerId": 3 },
+  { "amount": 100, "date": "2023-01-20", "customerId": 3 },
+  { "amount": 80, "date": "2023-02-10", "customerId": 3 },
+  { "amount": 120, "date": "2023-02-15", "customerId": 3 },
+  { "amount": 60, "date": "2023-03-05", "customerId": 3 }
+]
