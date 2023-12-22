@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
-import fetchUsersData from "../api/users.services";
+import { useEffect } from "react";
+import fetchUsersData from "api/users.services";
+import { useAppContext } from "context/AppContext";
 
 const useUsers = () => {
-  const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState([]);
+  const { users, errors, usersLoading, setUsers, setErrors, setUsersLoading } =
+    useAppContext();
 
   useEffect(() => {
     // Simulate an asynchronous API call to fetch data
@@ -13,9 +14,10 @@ const useUsers = () => {
         setUsers(data);
       } catch (error) {
         console.error("Error fetching data:", error);
-        // Handle error loading data
+        // Add errors to global handler
+        setErrors({ ...errors }, "Error fetching Users data, try later");
       } finally {
-        setLoading(false); // Set loading to false regardless of success or failure
+        setUsersLoading(false); // Set loading to false regardless of success or failure
       }
     };
 
@@ -25,7 +27,7 @@ const useUsers = () => {
 
   const findUserName = (userId) => {
     const foundUser = users.find((user) => userId === user.id);
-  
+
     // Check if a user was found
     if (foundUser) {
       return foundUser.name; // Return the user's name
@@ -34,10 +36,7 @@ const useUsers = () => {
     }
   };
 
-  return {
-    loading,
-    findUserName,
-  };
+  return { usersLoading, findUserName };
 };
 
 export default useUsers;

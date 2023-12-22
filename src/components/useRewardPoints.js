@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
-import fetchTransactionsData from "../api/transactions.services";
-import { calculateMonthlyPoints } from "../helpers/rewardCalculator";
+import fetchTransactionsData from "api/transactions.services";
+import { calculateMonthlyPoints } from "helpers/rewardCalculator";
+import { useAppContext } from "context/AppContext";
 
 const useRewardPoints = () => {
+  const { errors, setErrors } = useAppContext();
   const [monthlyPoints, setMonthlyPoints] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -15,7 +17,8 @@ const useRewardPoints = () => {
         setMonthlyPoints(monthlyPointsData);
       } catch (error) {
         console.error("Error fetching data:", error);
-        // Handle error loading data
+        // Add errors to global handler
+        setErrors({ ...errors }, "Error fetching Rewards data, try later");
       } finally {
         setLoading(false); // Set loading to false regardless of success or failure
       }
